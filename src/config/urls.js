@@ -1,2 +1,3 @@
-export const samplesUrl = "/api/samples/search";
-export const sampleUrl = "/api/samples";
+export const searchUrl = "/api/samples/search";
+export const getAndSetUrl = "/api/samples";
+export const homeUrl = "/api/home";

@@ -1,23 +1,20 @@
 import axios from '../axios-config';
-import {samplesUrl, sampleUrl} from "../config/urls";
+import {searchUrl, getAndSetUrl, homeUrl} from "../config/urls";
 
 const sampleApi = {
-    get(filters) {
-        // let sampleData = [];
-        return axios.get(samplesUrl)
-            // .then(res => {
-                // sampleData = res.data.data;
-            // })
-            // .catch(err => console.log(err))
-        // return sampleData;
+    getHomepage() {
+        return axios.get(homeUrl)
+    },
+    search(filters) {
+        return axios.get(searchUrl);
     },
     createNew(data) {
         console.log(data);
-        return axios.post(sampleUrl, data)
+        return axios.post(getAndSetUrl, data)
     },
     edit(data) {
         console.log(data);
-        return axios.put(sampleUrl + '/' + data.id, data)
+        return axios.put(getAndSetUrl + '/' + data.id, data)
     }
 
 };
