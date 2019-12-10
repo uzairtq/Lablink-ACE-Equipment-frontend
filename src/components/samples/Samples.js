@@ -23,7 +23,7 @@ class Samples extends React.Component {
     };
 
     fetchSampleList = () => {
-        sampleApi.get()
+        sampleApi.getHomepage()
             .then(res => {
                 this.setState({sampleData: res.data.data});
                 console.log(res.data.data);
