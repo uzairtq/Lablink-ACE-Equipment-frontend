@@ -1,12 +1,12 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-import Samples from './components/samples/Samples';
+import Equipment from "./components/equipment/Equipment";
 
 function App() {
   return (
     <div className="App">
-      <Samples />
+      <Equipment />
     </div>
   );
 }

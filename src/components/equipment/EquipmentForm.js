@@ -8,7 +8,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
 import Button from "@material-ui/core/Button";
 
-const NewSample = props => {
+const NewEquipment = props => {
   // let initialValue = {
   //     alias:'',
   //     description:'',
@@ -17,19 +17,21 @@ const NewSample = props => {
   //     siteCode:'IK',
   //
   // };
-  let title = "New Sample";
+  let title = "New Equipment";
   let confirmText = "Save";
 
-  let [sampleData, setSampleData] = React.useState({ ...props.sampleData });
+  let [equipmentData, setEquipmentData] = React.useState({
+    ...props.equipmentData
+  });
   if (props.edit) {
-    // initialValue = props.sampleData;
-    title = "Edit " + props.sampleData.id;
+    // initialValue = props.equipmentData;
+    title = "Edit " + props.equipmentData.id;
     confirmText = "Update";
   }
 
   const handleChange = inputName => event => {
-    setSampleData({
-      ...sampleData,
+    setEquipmentData({
+      ...equipmentData,
       [inputName]: event.target.value
     });
   };
@@ -39,22 +41,12 @@ const NewSample = props => {
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
         <Grid container spacing={2}>
-          <Grid item xs={4}>
+          <Grid item xs={6}>
             <TextField
               id="alias"
               label="Alias"
-              defaultValue={props.sampleData.alias}
+              defaultValue={props.equipmentData.alias}
               onChange={handleChange("alias")}
-            />
-          </Grid>
-          <Grid item xs={8}>
-            <TextField
-              id="description"
-              label="Description"
-              multiline
-              rowsMax={4}
-              defaultValue={props.sampleData.description}
-              onChange={handleChange("description")}
             />
           </Grid>
           <Grid item xs={6}>
@@ -62,15 +54,25 @@ const NewSample = props => {
               id="requester"
               label="requester"
               type="email"
-              defaultValue={props.sampleData.owner}
+              defaultValue={props.equipmentData.owner}
               onChange={handleChange("owner")}
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <TextField
+              id="description"
+              label="Description"
+              multiline
+              rows={4}
+              defaultValue={props.equipmentData.description}
+              onChange={handleChange("description")}
             />
           </Grid>
           <Grid item xs={6}>
             <TextField
               id="assignee"
               label="Assignee"
-              defaultValue={props.sampleData.assignee}
+              defaultValue={props.equipmentData.assignee}
               onChange={handleChange("assignee")}
             />
           </Grid>
@@ -81,7 +83,7 @@ const NewSample = props => {
           Cancel
         </Button>
         <Button
-          onClick={() => props.onSubmit(sampleData)}
+          onClick={() => props.onSubmit(equipmentData)}
           color="primary"
           variant="contained"
         >
@@ -92,4 +94,4 @@ const NewSample = props => {
   );
 };
 
-export default NewSample;
+export default NewEquipment;

@@ -26,17 +26,17 @@ const styles = theme => ({
   }
 });
 
-const sampleTable = props => {
+const equipmentTable = props => {
   return (
     <Paper className={props.classes.root}>
       <ToolBar>
         <Typography variant="h6" color="inherit" className={props.classes.grow}>
-          Samples
+          Equipment Tracking
         </Typography>
         <Button
           variant="contained"
           color="secondary"
-          onClick={props.onNewSample}
+          onClick={props.onNewEquipment}
         >
           New
         </Button>
@@ -53,27 +53,27 @@ const sampleTable = props => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.sampleList.map(sample => (
-            <TableRow hover key={sample.id}>
-              <TableCell>{sample.id}</TableCell>
-              <TableCell>{sample.alias}</TableCell>
+          {props.equipmentList.map(equipment => (
+            <TableRow hover key={equipment.id}>
+              <TableCell>{equipment.id}</TableCell>
+              <TableCell>{equipment.alias}</TableCell>
               <TableCell>
-                {sample.hasOwnProperty("owner") ? sample.owner : ""}
+                {equipment.hasOwnProperty("owner") ? equipment.owner : ""}
               </TableCell>
               <TableCell>
-                {sample.hasOwnProperty("owner") ? sample.assignee : ""}
+                {equipment.hasOwnProperty("owner") ? equipment.assignee : ""}
               </TableCell>
               <TableCell align="right">
                 <Button
                   variant="outlined"
                   size="small"
-                  onClick={() => props.onEditSample(sample)}
+                  onClick={() => props.onEditEquipment(equipment)}
                 >
                   Edit
                 </Button>
                 <IconButton
                   color="inherit"
-                  onClick={() => console.log("lots more about " + sample.id)}
+                  onClick={() => console.log("lots more about " + equipment.id)}
                 >
                   <MoreIcon />
                 </IconButton>
@@ -86,4 +86,4 @@ const sampleTable = props => {
   );
 };
 
-export default withStyles(styles)(sampleTable);
+export default withStyles(styles)(equipmentTable);

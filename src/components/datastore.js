@@ -1,4 +1,4 @@
-export const sample_list_data = {
+export const equipment_list_data = {
   status: "success",
   data: [
     {

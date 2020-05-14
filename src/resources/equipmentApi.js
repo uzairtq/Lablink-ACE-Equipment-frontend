@@ -1,7 +1,7 @@
 import axios from "../axios-config";
 import { searchUrl, getAndSetUrl, homeUrl } from "../config/urls";
 
-const sampleApi = {
+const equipmentApi = {
   getHomepage() {
     return axios.get(homeUrl);
   },
@@ -18,4 +18,4 @@ const sampleApi = {
   }
 };
 
-export default sampleApi;
+export default equipmentApi;
