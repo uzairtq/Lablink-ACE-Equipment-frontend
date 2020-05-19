@@ -2,89 +2,84 @@ export const equipment_list_data = {
   status: "success",
   data: [
     {
-      serialNumber: null,
-      description: "sample",
-      submittedDate: "2020-05-07T14:01:10.292000",
+      description: "TSI Mass Flowmeter",
+      notes: "TSI Mass Flowmeter",
+      location: "SmartPump Fixture",
+      returnDate: "05/07/2020",
       siteCode: "IK",
       _links: {
-        self: "/api/samples/IK20_00002"
+        self: "/api/eequipment/11271"
       },
-      testRequests: [],
-      productNumber: null,
-      owner: "tom.jones@example.com",
-      id: "IK20_00002",
-      image: null,
-      softwareVersion: null,
-      assignee: "tom.jones@example.com",
-      alias: "sample 1"
+      calibrated: "Yes",
+      calibrationDue: "05/08/2020",
+      checkedIn: "No",
+      checkedOutTo: "MPEA",
+      id: "11271",
+      image: null
     },
     {
-      serialNumber: null,
-      description: "sample",
-      submittedDate: "2020-05-07T14:01:24.665000",
+      description: "TSI Flow Meter",
+      notes: "TSI Flow Meter",
+      location: "MTru Cube",
+      returnDate: "05/12/2020",
       siteCode: "IK",
       _links: {
-        self: "/api/samples/IK20_00003"
+        self: "/api/equipment/14340"
       },
-      testRequests: [],
-      productNumber: null,
-      owner: "tom.jones@example.com",
-      id: "IK20_00003",
-      image: null,
-      softwareVersion: null,
-      assignee: "tom.jones@example.com",
-      alias: "sample 2"
+      calibrated: "Yes",
+      calibrationDue: "05/14/2020",
+      checkedIn: "No",
+      checkedOutTo: "Bob",
+      id: "14340",
+      image: null
     },
     {
-      serialNumber: null,
-      description: "sample",
-      submittedDate: "2020-05-07T14:01:28.376000",
+      description: "FLUKE DMM",
+      notes: "FLUKE Digital Multimeter 8050A",
+      location: "MTru Cube",
+      returnDate: "05/21/2020",
       siteCode: "IK",
       _links: {
-        self: "/api/samples/IK20_00004"
+        self: "/api/equipment/0001"
       },
-      testRequests: [],
-      productNumber: null,
-      owner: "tom.jones@example.com",
-      id: "IK20_00004",
-      image: null,
-      softwareVersion: null,
-      assignee: "tom.jones@example.com",
-      alias: "sample 3"
+      calibrated: "Yes",
+      calibrationDue: "05/23/2020",
+      checkedIn: "Yes",
+      checkedOutTo: "Bob",
+      id: "0001",
+      image: null
     },
     {
-      serialNumber: null,
-      description: "sample",
-      submittedDate: "2020-05-07T14:01:32.087000",
+      description: "TSI Flow Meter",
+      notes: "TSI Flow Meter Model 4199",
+      location: "Prudence/Component Room",
+      returnDate: "06/18/2020",
       siteCode: "IK",
       _links: {
-        self: "/api/samples/IK20_00005"
+        self: "/api/equipment/14343"
       },
-      testRequests: [],
-      productNumber: null,
-      owner: "tom.jones@example.com",
-      id: "IK20_00005",
-      image: null,
-      softwareVersion: null,
-      assignee: "tom.jones@example.com",
-      alias: "sample 4"
+      calibrated: "Yes",
+      calibrationDue: "06/20/2020",
+      checkedIn: "Yes",
+      checkedOutTo: "Prudence Boy",
+      id: "14343",
+      image: null
     },
     {
-      serialNumber: null,
-      description: "sample",
-      submittedDate: "2020-05-07T14:01:37.607000",
+      description: "TSI Thermal Mass Flowmeter",
+      notes: "TSI Thermal Mass Flowmeter",
+      location: "Calibration",
+      returnDate: "07/05/2020",
       siteCode: "IK",
       _links: {
-        self: "/api/samples/IK20_00006"
+        self: "/api/equipment/9422"
       },
-      testRequests: [],
-      productNumber: null,
-      owner: "tom.jones@example.com",
-      id: "IK20_00006",
-      image: null,
-      softwareVersion: null,
-      assignee: "tom.jones@example.com",
-      alias: "sample 5"
+      calibrated: "Yes",
+      calibrationDue: "07/20/2020",
+      checkedIn: "No",
+      checkedOutTo: "Calibration",
+      id: "9422",
+      image: null
     }
   ]
 };

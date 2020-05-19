@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component, Fragment } from "react";
 import EquipmentTable from "./EquipmentTable";
 import EquipmentForm from "./EquipmentForm";
 import { equipment_list_data } from "../datastore.js";
 
-class Equipment extends React.Component {
+class Equipment extends Component {
   state = {
     equipmentData: [],
     editData: null,
@@ -56,7 +56,7 @@ class Equipment extends React.Component {
       siteCode: "IK"
     };
 
-    let equipment = <h1>Equipment Tracking</h1>;
+    let equipment = <h2>:: There is no equipmetent data available!</h2>;
     if (this.state.equipmentData.length > 0) {
       // equipment = this.state.equipmentData.map(s => (<h1>{s.id}</h1>))
       equipment = (
@@ -83,10 +83,10 @@ class Equipment extends React.Component {
     }
 
     return (
-      <React.Fragment>
+      <Fragment>
         <div>{equipment}</div>
         {equipmentForm}
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

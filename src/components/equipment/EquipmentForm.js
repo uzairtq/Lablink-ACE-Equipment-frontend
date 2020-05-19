@@ -17,7 +17,7 @@ const NewEquipment = props => {
   //     siteCode:'IK',
   //
   // };
-  let title = "New Equipment";
+  let title = "Add an equipment";
   let confirmText = "Save";
 
   let [equipmentData, setEquipmentData] = React.useState({

@@ -1,5 +1,5 @@
 import React from "react";
-
+import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -9,17 +9,26 @@ import TableRow from "@material-ui/core/TableRow";
 import ToolBar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
-import MoreIcon from "@material-ui/icons/MoreVert";
+//import MoreIcon from "@material-ui/icons/MoreVert";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
-  root: {
-    width: "auto",
-    marginTop: theme.spacing(5),
-    marginLeft: theme.spacing(5),
-    marginRight: theme.spacing(5)
-    // overFlowX: 'auto',
+  Pane_Paper_Left: {
+    //padding: 20,
+    marginTop: theme.spacing(2),
+    marginLeft: theme.spacing(2),
+    //height: 500,
+    minWidth: 200
+    //overflowY: "auto"
+  },
+  Pane_Paper_Right: {
+    //padding: 20,
+    marginTop: theme.spacing(2),
+    marginLeft: theme.spacing(2)
+    //height: 500
   },
   grow: {
     flexGrow: 1
@@ -28,61 +37,88 @@ const styles = theme => ({
 
 const equipmentTable = props => {
   return (
-    <Paper className={props.classes.root}>
-      <ToolBar>
-        <Typography variant="h6" color="inherit" className={props.classes.grow}>
-          Equipment Tracking
-        </Typography>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={props.onNewEquipment}
-        >
-          New
-        </Button>
-      </ToolBar>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell>Alias</TableCell>
-            <TableCell>Requestor</TableCell>
-            <TableCell colSpan={2}>Assignee</TableCell>
-            {/* <TableCell>Role</TableCell> */}
-            {/* <TableCell>Last Active</TableCell> */}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {props.equipmentList.map(equipment => (
-            <TableRow hover key={equipment.id}>
-              <TableCell>{equipment.id}</TableCell>
-              <TableCell>{equipment.alias}</TableCell>
-              <TableCell>
-                {equipment.hasOwnProperty("owner") ? equipment.owner : ""}
-              </TableCell>
-              <TableCell>
-                {equipment.hasOwnProperty("owner") ? equipment.assignee : ""}
-              </TableCell>
-              <TableCell align="right">
-                <Button
-                  variant="outlined"
-                  size="small"
-                  onClick={() => props.onEditEquipment(equipment)}
-                >
-                  Edit
-                </Button>
-                <IconButton
-                  color="inherit"
-                  onClick={() => console.log("lots more about " + equipment.id)}
-                >
-                  <MoreIcon />
-                </IconButton>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Paper>
+    <Grid
+      container
+      direction="row"
+      justify="flex-start"
+      alignItems="flex-start"
+    >
+      <Grid item sm>
+        <Paper className={props.classes.Pane_Paper_Left}>
+          <ToolBar>
+            <Typography
+              variant="h5"
+              color="inherit"
+              className={props.classes.grow}
+            >
+              Equipment Status
+            </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={props.onNewEquipment}
+            >
+              Add
+            </Button>
+          </ToolBar>
+          <Table size="small">
+            <TableHead>
+              <TableRow>
+                <TableCell>
+                  <b>Equipment</b>
+                </TableCell>
+                <TableCell align="center" style={{ minWidth: 90 }}>
+                  <b>ID No.</b>
+                </TableCell>
+                <TableCell align="center" style={{ minWidth: 120 }}>
+                  <b>Checked in</b>
+                </TableCell>
+                <TableCell>
+                  <b>Expected return</b>
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {props.equipmentList.map(equipment => (
+                <TableRow hover key={equipment.id}>
+                  <TableCell>{equipment.description}</TableCell>
+                  <TableCell align="center">{equipment.id}</TableCell>
+                  <TableCell align="center">
+                    {equipment.hasOwnProperty("checkedIn")
+                      ? equipment.checkedIn
+                      : ""}
+                  </TableCell>
+                  <TableCell>
+                    {equipment.hasOwnProperty("returnDate")
+                      ? equipment.returnDate
+                      : ""}
+                  </TableCell>
+                  <TableCell align="right" style={{ minWidth: 110 }}>
+                    <IconButton
+                      size="small"
+                      onClick={() => props.onEditEquipment(equipment)}
+                    >
+                      <EditIcon />
+                    </IconButton>
+                    <IconButton size="small" style={{ marginLeft: 10 }}>
+                      <DeleteIcon />
+                    </IconButton>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Paper>
+      </Grid>
+      <Grid item sm>
+        <Paper className={props.classes.Pane_Paper_Right}>
+          <Typography variant="h4">Equipment</Typography>
+          <Typography variant="subtitle1" style={{ marginTop: 20 }}>
+            Notes:
+          </Typography>
+        </Paper>
+      </Grid>
+    </Grid>
   );
 };
 
