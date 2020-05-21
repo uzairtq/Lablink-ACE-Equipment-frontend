@@ -10,9 +10,9 @@ export const equipment_list_data = {
       _links: {
         self: "/api/eequipment/11271"
       },
-      calibrated: "Yes",
+      calibrated: true,
       calibrationDue: "05/08/2020",
-      checkedIn: "No",
+      checkedIn: false,
       checkedOutTo: "MPEA",
       id: "11271",
       image: null
@@ -26,9 +26,9 @@ export const equipment_list_data = {
       _links: {
         self: "/api/equipment/14340"
       },
-      calibrated: "Yes",
+      calibrated: true,
       calibrationDue: "05/14/2020",
-      checkedIn: "No",
+      checkedIn: false,
       checkedOutTo: "Bob",
       id: "14340",
       image: null
@@ -37,14 +37,14 @@ export const equipment_list_data = {
       description: "FLUKE DMM",
       notes: "FLUKE Digital Multimeter 8050A",
       location: "MTru Cube",
-      returnDate: "05/21/2020",
+      returnDate: "",
       siteCode: "IK",
       _links: {
         self: "/api/equipment/0001"
       },
-      calibrated: "Yes",
+      calibrated: true,
       calibrationDue: "05/23/2020",
-      checkedIn: "Yes",
+      checkedIn: true,
       checkedOutTo: "Bob",
       id: "0001",
       image: null
@@ -53,14 +53,14 @@ export const equipment_list_data = {
       description: "TSI Flow Meter",
       notes: "TSI Flow Meter Model 4199",
       location: "Prudence/Component Room",
-      returnDate: "06/18/2020",
+      returnDate: "",
       siteCode: "IK",
       _links: {
         self: "/api/equipment/14343"
       },
-      calibrated: "Yes",
+      calibrated: true,
       calibrationDue: "06/20/2020",
-      checkedIn: "Yes",
+      checkedIn: true,
       checkedOutTo: "Prudence Boy",
       id: "14343",
       image: null
@@ -74,9 +74,9 @@ export const equipment_list_data = {
       _links: {
         self: "/api/equipment/9422"
       },
-      calibrated: "Yes",
+      calibrated: true,
       calibrationDue: "07/20/2020",
-      checkedIn: "No",
+      checkedIn: false,
       checkedOutTo: "Calibration",
       id: "9422",
       image: null

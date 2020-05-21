@@ -7,6 +7,8 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
 import Button from "@material-ui/core/Button";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
 
 const NewEquipment = props => {
   // let initialValue = {
@@ -25,7 +27,7 @@ const NewEquipment = props => {
   });
   if (props.edit) {
     // initialValue = props.equipmentData;
-    title = "Edit " + props.equipmentData.id;
+    title = "Edit Item " + props.equipmentData.id;
     confirmText = "Update";
   }
 
@@ -33,6 +35,8 @@ const NewEquipment = props => {
     setEquipmentData({
       ...equipmentData,
       [inputName]: event.target.value
+        ? event.target.value
+        : event.target.checked
     });
   };
 
@@ -41,39 +45,88 @@ const NewEquipment = props => {
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
         <Grid container spacing={2}>
-          <Grid item xs={6}>
+          <Grid item xs={3}>
             <TextField
-              id="alias"
-              label="Alias"
-              defaultValue={props.equipmentData.alias}
-              onChange={handleChange("alias")}
+              id="id"
+              label="ID No."
+              defaultValue={props.equipmentData.id}
+              onChange={handleChange("id")}
             />
           </Grid>
-          <Grid item xs={6}>
-            <TextField
-              id="requester"
-              label="requester"
-              type="email"
-              defaultValue={props.equipmentData.owner}
-              onChange={handleChange("owner")}
-            />
-          </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={5}>
             <TextField
               id="description"
               label="Description"
-              multiline
-              rows={4}
               defaultValue={props.equipmentData.description}
               onChange={handleChange("description")}
             />
           </Grid>
+          <Grid item xs={4}>
+            <TextField
+              id="location"
+              label="Location"
+              defaultValue={props.equipmentData.location}
+              onChange={handleChange("location")}
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={equipmentData.checkedIn}
+                  onChange={handleChange("checkedIn")}
+                  name="checkedIn"
+                  color="primary"
+                />
+              }
+              label={<label style={{ fontSize: "0.9em" }}>Checked In</label>}
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField
+              id="returnDate"
+              label="Expected Return"
+              defaultValue={props.equipmentData.returnDate}
+              onChange={handleChange("returnDate")}
+            />
+          </Grid>
+          <Grid item xs={5}>
+            <TextField
+              id="checkedOutTo"
+              label="Checked Out To"
+              defaultValue={props.equipmentData.checkedOutTo}
+              onChange={handleChange("checkedOutTo")}
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={equipmentData.calibrated}
+                  onChange={handleChange("calibrated")}
+                  name="calibrated"
+                  color="primary"
+                />
+              }
+              label={<label style={{ fontSize: "0.9em" }}>Calibrated</label>}
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField
+              id="calibrationDue"
+              label="Calibration Due Date"
+              defaultValue={props.equipmentData.calibrationDue}
+              onChange={handleChange("calibrationDue")}
+            />
+          </Grid>
           <Grid item xs={6}>
             <TextField
-              id="assignee"
-              label="Assignee"
-              defaultValue={props.equipmentData.assignee}
-              onChange={handleChange("assignee")}
+              id="notes"
+              label="Notes"
+              multiline
+              rows={4}
+              defaultValue={props.equipmentData.notes}
+              onChange={handleChange("notes")}
             />
           </Grid>
         </Grid>
