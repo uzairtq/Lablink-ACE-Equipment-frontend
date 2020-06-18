@@ -15,7 +15,8 @@ export const equipment_list_data = {
       checkedIn: false,
       checkedOutTo: "MPEA",
       id: "11271",
-      image: null
+      image:
+        "https://tsi.com/getmetafile/0569c762-6d50-4319-8d5f-02323740c3bf/4043_02"
     },
     {
       description: "TSI Flow Meter",

@@ -26,14 +26,14 @@ const styles = theme => ({
     //padding: 20,
     marginTop: theme.spacing(2),
     marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(1)
     //height: 500,
-    minWidth: 200
     //overflowY: "auto"
   },
   Pane_Paper_Right: {
     //padding: 20,
     marginTop: theme.spacing(2),
-    marginLeft: theme.spacing(2),
+    marginLeft: theme.spacing(1),
     marginRight: theme.spacing(2)
     //height: 500
   },
@@ -77,6 +77,10 @@ const styles = theme => ({
         width: "20ch"
       }
     }
+  },
+  media: {
+    height: 360,
+    minWidth: 550
   }
 });
 
@@ -175,9 +179,9 @@ const equipmentTable = props => {
           <Card>
             <CardActionArea>
               <CardMedia
-                //className={classes.media}
-                image="img.jpg"
-                title="Contemplative Reptile"
+                className={props.classes.media}
+                //image={equipment.image}
+                //title="TSI Mass Flowmeter"
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
