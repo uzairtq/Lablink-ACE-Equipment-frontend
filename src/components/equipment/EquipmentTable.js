@@ -13,7 +13,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 //import MoreIcon from "@material-ui/icons/MoreVert";
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import Card from "@material-ui/core/Card";
@@ -21,7 +21,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   Pane_Paper_Left: {
     //padding: 20,
     marginTop: theme.spacing(2),
@@ -82,9 +82,16 @@ const styles = theme => ({
     height: 360,
     minWidth: 550
   }
-});
+}));
 
-const equipmentTable = props => {
+export default function EquipmentTable(props) {
+  const classes = useStyles();
+  const [selectedEquipment, setSelectedEquipment] = React.useState(
+    props.equipmentList[0]
+  );
+  const OnSelectEquipment = equipment => {
+    setSelectedEquipment(equipment);
+  };
   return (
     <Grid
       container
@@ -93,24 +100,20 @@ const equipmentTable = props => {
       alignItems="flex-start"
     >
       <Grid item sm>
-        <Paper className={props.classes.Pane_Paper_Left}>
+        <Paper className={classes.Pane_Paper_Left}>
           <ToolBar>
-            <Typography
-              variant="h5"
-              color="inherit"
-              className={props.classes.grow}
-            >
+            <Typography variant="h5" color="inherit" className={classes.grow}>
               Equipment Status
             </Typography>
-            <div className={props.classes.search}>
-              <div className={props.classes.searchIcon}>
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
               <InputBase
                 placeholder="Search…"
                 classes={{
-                  root: props.classes.inputRoot,
-                  input: props.classes.inputInput
+                  root: classes.inputRoot,
+                  input: classes.inputInput
                 }}
                 inputProps={{ "aria-label": "search" }}
               />
@@ -142,7 +145,11 @@ const equipmentTable = props => {
             </TableHead>
             <TableBody>
               {props.equipmentList.map(equipment => (
-                <TableRow hover key={equipment.id}>
+                <TableRow
+                  hover
+                  key={equipment.id}
+                  onClick={() => OnSelectEquipment(equipment)}
+                >
                   <TableCell>{equipment.description}</TableCell>
                   <TableCell align="center">{equipment.id}</TableCell>
                   <TableCell align="center">
@@ -175,23 +182,39 @@ const equipmentTable = props => {
         </Paper>
       </Grid>
       <Grid item sm>
-        <Paper className={props.classes.Pane_Paper_Right}>
+        <Paper className={classes.Pane_Paper_Right}>
           <Card>
             <CardActionArea>
               <CardMedia
-                className={props.classes.media}
-                //image={equipment.image}
+                className={classes.media}
+                image={selectedEquipment.image}
                 //title="TSI Mass Flowmeter"
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  TSI Mass Flowmeter
+                  {selectedEquipment.description}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Location: SmartPump Fixture
+                  <b>Location:</b> {selectedEquipment.location}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Checked Out To: MPEA
+                  <b>Checked Out To:</b> {selectedEquipment.checkedOutTo}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  <b>
+                    This equipment is{" "}
+                    {selectedEquipment.calibrated
+                      ? "calibrated"
+                      : "not calibrated"}
+                  </b>
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  <b>
+                    Calibration is due on {selectedEquipment.calibrationDue}
+                  </b>
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  <b>Notes:</b> {selectedEquipment.notes}
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -200,6 +223,4 @@ const equipmentTable = props => {
       </Grid>
     </Grid>
   );
-};
-
-export default withStyles(styles)(equipmentTable);
+}

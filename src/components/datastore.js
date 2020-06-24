@@ -32,7 +32,8 @@ export const equipment_list_data = {
       checkedIn: false,
       checkedOutTo: "Bob",
       id: "14340",
-      image: null
+      image:
+        "https://tsi.com/getattachment/c204aa35-2c20-4add-b169-be64d70c6e80/Air-Gas-Mass-Flow-Meter-(plus-Kit)-5310-1"
     },
     {
       description: "FLUKE DMM",
@@ -48,7 +49,8 @@ export const equipment_list_data = {
       checkedIn: true,
       checkedOutTo: "Bob",
       id: "0001",
-      image: null
+      image:
+        "https://cdn11.bigcommerce.com/s-dylwc6/images/stencil/1280x1280/products/65962/131432/F-117_02b_c_1500x1000__15811.1565878225.jpg?c=2&imbypass=on"
     },
     {
       description: "TSI Flow Meter",
@@ -64,7 +66,8 @@ export const equipment_list_data = {
       checkedIn: true,
       checkedOutTo: "Prudence Boy",
       id: "14343",
-      image: null
+      image:
+        "https://tsi.com/getattachment/618e8492-9f63-4288-8630-19d944d921a6/Mass-Flow-Meter-4140"
     },
     {
       description: "TSI Thermal Mass Flowmeter",
@@ -75,12 +78,12 @@ export const equipment_list_data = {
       _links: {
         self: "/api/equipment/9422"
       },
-      calibrated: true,
+      calibrated: false,
       calibrationDue: "07/20/2020",
       checkedIn: false,
       checkedOutTo: "Calibration",
       id: "9422",
-      image: null
+      image: "https://img.twa.nl/11391423"
     }
   ]
 };
